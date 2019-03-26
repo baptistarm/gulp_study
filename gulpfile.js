@@ -2,7 +2,7 @@ var gulp = require('gulp')
   ,imagemin = require('gulp-imagemin');
 
 gulp.task('copy', function(){
-  gulp.src('src')
+  gulp.src('src/img/**/*')
       .pipe(gulp.dest('dist'));
 });
 
