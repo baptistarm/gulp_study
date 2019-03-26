@@ -2,17 +2,17 @@ var gulp = require('gulp')
   ,imagemin = require('gulp-imagemin')
   ,clean = require('gulp-clean');
 
-gulp.task('copy', function(){
-  gulp.src('src/img/**/*')
+gulp.task('copy', ['clean'], function(){
+  return gulp.src('src/img/**/*')
       .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', function(){
-  gulp.src('dist')
+  return gulp.src('dist')
       .pipe(clean());
 });
 
-gulp.task('build-img', function() {
+gulp.task('build-img', ['copy'], function() {
   gulp.src('dist/img/**/*')
       .pipe(imagemin())
       .pipe(gulp.dest('dist/img'));
